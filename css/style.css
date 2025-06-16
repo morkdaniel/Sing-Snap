@@ -1,12 +1,12 @@
-@import "about.css";
-@import "contact.css";
-@import "features.css";
-@import "getstarted.css";
-@import "hero.css";
-@import "karaoke.css";
-@import "nav.css";
-@import "photostrip.css";
-@import "player.css";
+@import url("/SingAndSnap/css/about.css");
+@import url("/SingAndSnap/css/contact.css");
+@import url("/SingAndSnap/css/features.css");
+@import url("/SingAndSnap/css/getstarted.css");
+@import url("/SingAndSnap/css/hero.css");
+@import url("/SingAndSnap/css/karaoke.css");
+@import url("/SingAndSnap/css/nav.css");
+@import url("/SingAndSnap/css/photostrip.css");
+@import url("/SingAndSnap/css/player.css");
 
 body {
   background: linear-gradient(to right, #967bb6, #d9bad7);
