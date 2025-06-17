@@ -65,6 +65,29 @@
   z-index: 10;
 }
 
+.editor__downloads {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.editor__downloads .btn {
+  background-color: #967bb6;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.editor__downloads .btn:hover {
+  background-color: #7a63a2;
+}
+
+
 .editor__controls {
   flex: 1;
   min-width: 250px;
