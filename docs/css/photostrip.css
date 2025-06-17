@@ -173,3 +173,30 @@
   letter-spacing: 1px;
 }
 
+.editor__downloads-fixed {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.btn--download {
+  background-color: #967bb6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s;
+}
+
+.btn--download:hover {
+  background-color: #7a63a2;
+}
+
