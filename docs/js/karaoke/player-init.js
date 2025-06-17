@@ -15,17 +15,23 @@ export const onYouTubeIframeAPIReady = () => {
       rel: 0
     },
     events: {
-      onReady: () => {
-        console.log("Player ready");
-        player.setVolume(0);
-        setPlayer(player);
-      },
-      onStateChange: (event) => {
-        if (event.data === YT.PlayerState.ENDED) {
-          stopPreview();
-        }
-      }
+  onReady: () => {
+    console.log("Player ready");
+    player.setVolume(0);
+    setPlayer(player);
+  },
+  onStateChange: (event) => {
+    if (event.data === YT.PlayerState.ENDED) {
+      stopPreview();
     }
+  },
+  onError: (error) => {
+    console.error("YouTube Embed Error:", error);
+    alert("This video cannot be played. Please try another one.");
+    window.location.href = "karaoke.html";
+  }
+}
+
   });
 };
 
