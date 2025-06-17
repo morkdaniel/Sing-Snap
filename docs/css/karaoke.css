@@ -54,6 +54,19 @@
   z-index: 1;
 }
 
+.karaoke__search-button {
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  background-color: #6a4f9c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.karaoke__search-button:hover {
+  background-color: #5b3e8e;
+}
+
 .karaoke__search-input {
   width: 100%;
   max-width: 450px;
