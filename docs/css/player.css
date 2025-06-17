@@ -14,6 +14,7 @@
   max-width: 400px;
   border-radius: 8px;
   margin-bottom: 10px;
+  transform: scaleX(-1); /* ✅ Mirror camera */
 }
 
 #snapBtn {
