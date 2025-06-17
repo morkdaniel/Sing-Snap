@@ -101,7 +101,7 @@ function addSingAndSnapLabel() {
     const canvas = await html2canvas(photoStrip);
     const imgData = canvas.toDataURL("image/png");
 
-    const pdf = new jsPDF({
+    const pdf = new window.jsPDF({
       orientation: "portrait",
       unit: "px",
       format: [canvas.width, canvas.height]
