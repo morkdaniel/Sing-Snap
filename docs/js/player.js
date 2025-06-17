@@ -28,43 +28,42 @@ function setupCamera() {
     });
 }
 
-function setupSnapshot(videoId) {
+function setupSnapshot() {
   const snapBtn = document.getElementById("snapBtn");
   const video = document.getElementById("camera");
   const photoStrip = document.getElementById("photoStrip");
+  const counter = document.getElementById("snapCounter");
+
+  let snapshots = JSON.parse(sessionStorage.getItem("snapshots") || "[]");
 
   snapBtn.addEventListener("click", () => {
+    if (snapshots.length >= 4) {
+      alert("You’ve already taken 4 photos.");
+      return;
+    }
+
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
 
     const ctx = canvas.getContext("2d");
+    ctx.translate(canvas.width, 0); // Mirror
+    ctx.scale(-1, 1);
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     const imgData = canvas.toDataURL("image/png");
-
-    // Save per song ID
-    const songKey = `snapshots_${videoId}`;
-    let snapshots = JSON.parse(localStorage.getItem(songKey) || "[]");
-
-    if (snapshots.length >= 3) {
-      alert("You’ve already taken 3 photos for this song.");
-      return;
-    }
-
     snapshots.push(imgData);
-    localStorage.setItem(songKey, JSON.stringify(snapshots));
+    sessionStorage.setItem("snapshots", JSON.stringify(snapshots));
 
-    // Optional live preview
     const img = document.createElement("img");
     img.src = imgData;
     img.alt = "Snapshot";
     img.className = "photo-preview";
-
     photoStrip.appendChild(img);
+
+    counter.textContent = `Photos taken: ${snapshots.length} / 3`;
   });
 }
-
 
 function setupPhotostripViewButton() {
   const viewBtn = document.getElementById("viewPhotostripBtn");
@@ -81,7 +80,7 @@ const { videoId, title } = getQueryParams();
 if (videoId) {
   loadPlayer(videoId, title);
   setupCamera();
-  setupSnapshot(videoId);
+  setupSnapshot(); // no need to pass videoId anymore
   setupPhotostripViewButton();
 } else {
   alert("No song selected!");
