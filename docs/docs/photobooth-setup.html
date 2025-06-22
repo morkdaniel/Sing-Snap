@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sing&Snap | Photobooth</title>
+  <meta name="description" content="Sing&Snap Live Photobooth" />
+  <link rel="stylesheet" href="css/photobooth-setup.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a href="getstarted.html" class="karaoke__back-button" style="background:none;border:none;cursor:pointer;padding:1rem;position:absolute;top:1rem;left:1rem;z-index:10;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
+    <path d="M12 19L5 12l7-7" />
+    <path d="M19 12H5" />
+  </svg>
+</a>
+
+
+  <!-- ✅ Main Photobooth Section -->
+  <main class="photobooth">
+
+    <section class="photobooth__setup">
+  <h1 class="photobooth__title">Choose Your Strip Layout</h1>
+  <label for="stripCount">Number of Photos:</label>
+<select id="stripCount">
+  <option value="assets/photostrip 1.svg" data-count="1">1 Photo</option>
+  <option value="assets/photostrip 2.svg" data-count="2">2 Photos</option>
+  <option value="assets/photostrip 3.svg" data-count="3">3 Photos</option>
+  <option value="assets/photostrip 4.svg" data-count="4" selected>4 Photos</option>
+</select>
+
+
+  <!-- 🔽 Template Preview Strip -->
+  <div class="template-preview preview-strip" id="setupPreview"></div>
+
+
+  <button id="startBooth" class="btn btn--start">Start Photobooth</button>
+</section>
+
+
+    <!-- ✅ Strip Display Section (dynamic) -->
+    <section class="photostrip-layout hidden" id="boothSection">
+  <div class="strip-preview" id="boothPreview">
+    <!-- SVG + snapshots will appear here -->
+  </div>
+
+  <div class="strip-controls">
+    <h2>Customize Your Strip</h2>
+
+    <!-- 👇 Add this line so JS can find #strip -->
+    <div class="photostrip__container" id="strip"></div>
+
+    <label for="stripColor">🎨 Background Color</label>
+    <input type="color" id="stripColor" value="#d9d9d9" />
+
+    <label for="filterSelect">✨ Photo Filter</label>
+    <select id="filterSelect">
+      <option value="none">None</option>
+      <option value="grayscale(100%)">Grayscale</option>
+      <option value="sepia(100%)">Sepia</option>
+      <option value="contrast(150%)">High Contrast</option>
+      <option value="blur(2px)">Blur</option>
+    </select>
+
+    <div class="controls">
+      <button id="snap" class="btn">📸 Take Photo</button>
+      <button id="reset" class="btn btn--reset">🔄 Reset</button>
+    </div>
+  </div>
+</section>
+
+
+
+  </main>
+
+  <!-- ✅ Optional Modal (future) -->
+  <div class="modal hidden" id="previewModal">
+    <div class="modal__content">
+      <h3>Preview Your Strip</h3>
+      <div id="previewStrip"></div>
+      <button id="saveStrip" class="btn">💾 Save Strip</button>
+      <button id="closeModal" class="btn btn--close">✖ Close</button>
+    </div>
+  </div>
+
+  <!-- ✅ JavaScript -->
+  <script src="js/photobooth/photobooth-setup.js" type="module"></script>
+
+</body>
+</html>

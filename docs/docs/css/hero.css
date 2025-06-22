@@ -1,0 +1,53 @@
+/* Hero Section Styles */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(to right, #967bb6, #d9bad7); /* Purple to Pink */
+  color: #ffffff;
+  text-align: center;
+  min-height: 70vh;
+  padding: 63px;
+}
+
+.hero__content {
+  max-width: 600px;
+  margin: 0;
+}
+
+.hero__title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero__button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #8f42c7; /* Yellow */
+  color: #fbf8f6; /* Light text */
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.hero__button:hover {
+  background-color: #4b1f59;
+}
+
+.section-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: -55px;
+  margin-bottom: -5px; /* Fix any overlap */
+}

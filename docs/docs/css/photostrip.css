@@ -1,0 +1,175 @@
+.photostrip {
+  background: linear-gradient(to right, #d9bad7, #967bb6);
+  text-align: center;
+  padding: 2rem;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.photostrip__title,
+.editor__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.photostrip__preview {
+  width: 300px;
+  min-height: 600px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photostrip__preview-wrapper {
+  flex: 0 0 auto;
+  order: 1;
+}
+
+#photostripPreview {
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding-bottom: 8rem;
+}
+
+
+.photo__container {
+  position: relative;
+  width: 100%;
+  height: 100%; /* allow scaling */
+  overflow: hidden; /* prevent overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photostrip__photo {
+  width: 100%;
+  height: auto; /* ADD THIS */
+  max-height: 100%; /* Prevent overflow */
+  object-fit: contain; /* Ensure proper scaling */
+  display: block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sticker--applied {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  cursor: move;
+  z-index: 10;
+}
+
+.editor__downloads {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.editor__downloads .btn {
+  background-color: #967bb6;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.editor__downloads .btn:hover {
+  background-color: #7a63a2;
+}
+
+
+.editor__controls {
+  flex: 1;
+  min-width: 250px;
+  order: 2;
+}
+
+.editor__controls select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.editor__actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.editor__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.editor__actions button {
+  background-color: #673ab7;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editor__actions button:hover {
+  background-color: #5e35b1;
+}
+
+.color__options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.color__circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #888;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.color__circle:hover {
+  transform: scale(1.1);
+}
+
+.polaroid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 240px;
+  border-radius: 6px;
+}
+
+.polaroid__label {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  color: #555;
+}
+
+.photostrip__label {
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
