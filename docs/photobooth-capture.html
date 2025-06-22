@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Editor App</title>
+    <link rel="stylesheet" href="css/photobooth-capture.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <button class="back-btn" onclick="goBack()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </button>
+
+            <div class="photostrip-selector">
+                <button class="strip-btn active" onclick="selectPhotostrip(1)">1 Photo</button>
+                <button class="strip-btn" onclick="selectPhotostrip(2)">2 Photos</button>
+                <button class="strip-btn" onclick="selectPhotostrip(3)">3 Photos</button>
+                <button class="strip-btn" onclick="selectPhotostrip(4)">4 Photos</button>
+            </div>
+
+            <div class="photostrip-container" id="photostripContainer">
+                <!-- Photostrip 1 -->
+                <svg id="photostrip-1" class="photostrip active" width="200" height="250" viewBox="0 0 600 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="600" height="750" fill="#1E1E1E"/>
+                    <rect id="bg" width="600" height="750" fill="#D9D9D9"/>
+                    <rect data-slot="0" x="100" y="100" width="400" height="400" fill="#747373" rx="12"/>
+                    <path d="M31 47H571V587H31V47Z" fill="#CCCCCC"/>
+                </svg>
+
+                <!-- Photostrip 2 -->
+                <svg id="photostrip-2" class="photostrip" width="200" height="133" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="600" height="400" fill="#1E1E1E"/>
+                    <path id="bg" d="M600 0H0V400H600V0Z" fill="#D9D9D9"/>
+                    <path data-slot="0" d="M281 51H34V303H281V51Z" fill="#747373"/>
+                    <path data-slot="1" d="M565 51H309V303H565V51Z" fill="#747373"/>
+                </svg>
+
+                <!-- Photostrip 3 -->
+                <svg id="photostrip-3" class="photostrip" width="200" height="634" viewBox="0 0 200 634" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="634" fill="#1E1E1E"/>
+                    <g clip-path="url(#clip0_0_1)">
+                        <path id="bg" d="M200 0H0V634H200V0Z" fill="#D9D9D9"/>
+                        <g clip-path="url(#clip2_0_1)">
+                            <path data-slot="0" d="M188 261H12V372H188V261Z" fill="#747373"/>
+                        </g>
+                        <g clip-path="url(#clip3_0_1)">
+                            <path data-slot="1" d="M188 132H12V243H188V132Z" fill="#747373"/>
+                        </g>
+                        <g clip-path="url(#clip4_0_1)">
+                            <path data-slot="2" d="M188 390H12V501H188V390Z" fill="#747373"/>
+                        </g>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1">
+                            <rect width="200" height="634" fill="white"/>
+                        </clipPath>
+                        <clipPath id="clip2_0_1">
+                            <rect width="176" height="111" fill="white" transform="translate(12 261)"/>
+                        </clipPath>
+                        <clipPath id="clip3_0_1">
+                            <rect width="176" height="111" fill="white" transform="translate(12 132)"/>
+                        </clipPath>
+                        <clipPath id="clip4_0_1">
+                            <rect width="176" height="111" fill="white" transform="translate(12 390)"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+
+                <!-- Photostrip 4 -->
+                <svg id="photostrip-4" class="photostrip" width="200" height="634" viewBox="0 0 200 634" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="634" fill="#1E1E1E"/>
+                    <path id="bg" d="M200 0H0V634H200V0Z" fill="#D9D9D9"/>
+                    <path data-slot="0" d="M188 24H12V135H188V24Z" fill="#747373"/>
+                    <path data-slot="1" d="M188 147H12V258H188V147Z" fill="#747373"/>
+                    <path data-slot="2" d="M188 269H12V380H188V269Z" fill="#747373"/>
+                    <path data-slot="3" d="M188 392H12V503H188V392Z" fill="#747373"/>
+                </svg>
+            </div>
+
+            <div class="brand">
+                <span>Snap&Snap</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="controls">
+                <div class="control-section">
+                    <h3>Background Color:</h3>
+                    <div class="color-options">
+                        <div class="color-option active" data-color="#f3f4f6" onclick="selectBgColor(this, '#f3f4f6')"></div>
+                        <div class="color-option" data-color="#e5e7eb" onclick="selectBgColor(this, '#e5e7eb')"></div>
+                        <div class="color-option" data-color="#d1d5db" onclick="selectBgColor(this, '#d1d5db')"></div>
+                        <div class="color-option" data-color="#9ca3af" onclick="selectBgColor(this, '#9ca3af')"></div>
+                        <div class="color-option" data-color="#6b7280" onclick="selectBgColor(this, '#6b7280')"></div>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Filters:</h3>
+                    <div class="filter-options">
+                        <div class="filter-option active" data-filter="none" onclick="selectFilter(this, 'none')"></div>
+                        <div class="filter-option" data-filter="sepia(100%)" onclick="selectFilter(this, 'sepia(100%)')"></div>
+                        <div class="filter-option" data-filter="blur(2px)" onclick="selectFilter(this, 'blur(2px)')"></div>
+                        <div class="filter-option" data-filter="brightness(120%)" onclick="selectFilter(this, 'brightness(120%)')"></div>
+                        <div class="filter-option" data-filter="contrast(120%)" onclick="selectFilter(this, 'contrast(120%)')"></div>
+                    </div>
+                </div>
+
+                <div class="download-buttons">
+                    <button class="download-btn" onclick="downloadImage('png')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                        Download as PNG
+                    </button>
+                    <button class="download-btn secondary" onclick="downloadImage('pdf')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                        Download as PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="camera-preview">
+                <div class="camera-container" id="cameraContainer">
+                    <div class="camera-placeholder" id="cameraPlaceholder">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                        <p>Click "Start Camera" to begin</p>
+                    </div>
+                    <video id="cameraFeed" autoplay playsinline style="display: none;"></video>
+                </div>
+            </div>
+
+            <div class="camera-controls">
+                <button class="camera-btn" id="startCameraBtn" onclick="startCamera()">Start Camera</button>
+                <button class="snap-btn" id="snapBtn" onclick="snapPhoto()" style="display: none;">Snap Photo</button>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+    <canvas id="downloadCanvas" style="display: none;"></canvas>
+    <canvas id="captureCanvas" style="display: none;"></canvas>
+
+    <script src="js/photobooth/photobooth-capture.js"></script>
+</body>
+</html>

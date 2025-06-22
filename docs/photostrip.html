@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Your Photostrip</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/photostrip.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="js/photostrip.js" defer></script>
+</head>
+<body class="photostrip">
+
+  <section class="editor__container">
+    <h1 class="editor__title">Edit Your Photostrip</h1>
+
+    <!-- Template selector -->
+<div class="editor__controls">
+  <label for="photoCountSelect">Number of Photos:</label>
+  <select id="photoCountSelect">
+    <option value="1">1 Photo</option>
+    <option value="2">2 Photos</option>
+    <option value="3">3 Photos</option>
+    <option value="4">4 Photos</option>
+  </select>
+</div>
+
+
+    <!-- Color picker -->
+    <div class="editor__controls">
+      <label for="stripColor">Choose Strip Color:</label>
+      <input type="color" id="stripColor" value="#ffffff" />
+    </div>
+
+    <!-- Photostrip preview -->
+<div class="editor__container">
+  <!-- Left: Photostrip Preview -->
+  <div class="photostrip__preview-wrapper">
+    <div id="photostripPreview" class="photostrip__preview"></div>
+  </div>
+
+  <!-- Right: Editing Controls -->
+  <div class="editor__controls">
+    <!-- Background Color Section -->
+    <div class="editor__section">
+      <h2>Background Color</h2>
+      <div class="color__options">
+        <button class="color__circle" data-color="#ffffff" style="background-color: #ffffff;"></button>
+        <button class="color__circle" data-color="#d9bad7" style="background-color: #d9bad7;"></button>
+        <button class="color__circle" data-color="#967bb6" style="background-color: #967bb6;"></button>
+        <button class="color__circle" data-color="#000000" style="background-color: #000000;"></button>
+        <!-- Add more if needed -->
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+
+  <div class="editor__downloads">
+  <button class="btn" onclick="exportAsImage()">⬇ Download as PNG</button>
+  <button class="btn" onclick="exportAsPDF()">⬇ Download as PDF</button>
+</div>
+
+</body>
+</html>
